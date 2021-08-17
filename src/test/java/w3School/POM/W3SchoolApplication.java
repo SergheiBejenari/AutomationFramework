@@ -43,14 +43,7 @@ public class W3SchoolApplication {
         return context.pages().size();
     }
 
-    public void clickLink(String link) {
-        page = context.waitForPage(() -> {
-            page.click(link);
-        });
-    }
-
-    public void getPreviousTab() {
-        page.bringToFront();
-        page = context.pages().get(0);
+    public void getTabByIndex(int index) {
+        page = context.pages().get(index);
     }
 }
