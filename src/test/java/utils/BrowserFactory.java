@@ -11,7 +11,7 @@ public class BrowserFactory {
         playwright = Playwright.create();
         switch (browserName.toLowerCase()) {
             case "chrome":
-                return playwright.chromium().launch(new com.microsoft.playwright.BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
+                return playwright.chromium().launch(new com.microsoft.playwright.BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1000));
             case "firefox":
                 return playwright.firefox().launch(new com.microsoft.playwright.BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
             default:

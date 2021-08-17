@@ -19,7 +19,12 @@ public class CodeEditorPage {
         return page.url().equals(url);
     }
 
-    public void clickOnW3SchoolLink() {
+    public String getW3SchoolLink(){
+        return w3SchoolLink;
+    }
+
+    public void clickW3SchoolLink() {
+//        application.clickLink(w3SchoolLink);
         page.click(w3SchoolLink);
     }
 

@@ -39,4 +39,18 @@ public class W3SchoolApplication {
         browserFactory.close();
     }
 
+    public int getNumberOfTabs() {
+        return context.pages().size();
+    }
+
+    public void clickLink(String link) {
+        page = context.waitForPage(() -> {
+            page.click(link);
+        });
+    }
+
+    public void getPreviousTab() {
+        page.bringToFront();
+        page = context.pages().get(0);
+    }
 }
