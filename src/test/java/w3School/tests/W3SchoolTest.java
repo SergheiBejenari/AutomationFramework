@@ -26,12 +26,11 @@ public class W3SchoolTest {
     @Test
     public void changeTabs() {
         app.codeEditorPage().navigate();
-//        app.codeEditorPage().clickW3SchoolLink();
-        app.clickLink(app.codeEditorPage().getW3SchoolLink());
+        app.codeEditorPage().clickW3SchoolLink();
+        app.getTabByIndex(1);
         assertTrue(app.w3SchoolsHomePage().isW3SchoolPageOpened());
-        app.getPreviousTab();
-        app.clickLink(app.codeEditorPage().getW3SchoolLink());
-//        app.codeEditorPage().clickW3SchoolLink();
+        app.getTabByIndex(0);
+        app.codeEditorPage().clickW3SchoolLink();
         assertTrue(app.w3SchoolsHomePage().isW3SchoolPageOpened());
         assertEquals(app.getNumberOfTabs(), 3);
     }

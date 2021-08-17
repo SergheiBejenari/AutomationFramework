@@ -15,16 +15,7 @@ public class CodeEditorPage {
         page.navigate(url);
     }
 
-    public boolean isCodeEditorPageOpened() {
-        return page.url().equals(url);
-    }
-
-    public String getW3SchoolLink(){
-        return w3SchoolLink;
-    }
-
     public void clickW3SchoolLink() {
-//        application.clickLink(w3SchoolLink);
         page.click(w3SchoolLink);
     }
 
