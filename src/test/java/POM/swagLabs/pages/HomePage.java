@@ -13,12 +13,12 @@ public class HomePage {
         this.page = page;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
     public void logOut() {
         page.click(burgerMenu);
         page.click(logOutButton);
+    }
+
+    public String getBurgerMenu() {
+        return burgerMenu;
     }
 }

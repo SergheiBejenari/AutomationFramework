@@ -24,7 +24,7 @@ public class SwagLabsTests {
     public void logInTest() {
         browser.swagLabs().logInPage().open();
         browser.swagLabs().logInPage().logIn(userName, password);
-        Assertions.assertTrue(browser.isDisplayed(browser.swagLabs().homePage().getUrl()));
+        Assertions.assertTrue(browser.isPresent(browser.swagLabs().homePage().getBurgerMenu()));
     }
 
     @Test
@@ -32,6 +32,6 @@ public class SwagLabsTests {
         browser.swagLabs().logInPage().open();
         browser.swagLabs().logInPage().logIn(userName, password);
         browser.swagLabs().homePage().logOut();
-        Assertions.assertTrue(browser.isDisplayed(browser.swagLabs().logInPage().getUrl()));
+        Assertions.assertTrue(browser.isPresent(browser.swagLabs().logInPage().getLoginButton()));
     }
 }

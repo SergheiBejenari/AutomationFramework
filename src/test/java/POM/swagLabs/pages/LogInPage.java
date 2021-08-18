@@ -13,10 +13,6 @@ public class LogInPage {
         this.page = page;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
     public void open() {
         page.navigate(url);
     }
@@ -25,5 +21,9 @@ public class LogInPage {
         page.fill(userNameField, userName);
         page.fill(passwordField, password);
         page.click(loginButton);
+    }
+
+    public String getLoginButton() {
+        return loginButton;
     }
 }

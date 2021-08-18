@@ -27,9 +27,9 @@ public class WebBrowser {
         playwright = Playwright.create();
         switch (browserName.toLowerCase()) {
             case "chrome":
-                return playwright.chromium().launch(new com.microsoft.playwright.BrowserType.LaunchOptions().setHeadless(false).setSlowMo(2000));
+                return playwright.chromium().launch(new com.microsoft.playwright.BrowserType.LaunchOptions().setHeadless(false).setSlowMo(200));
             case "firefox":
-                return playwright.firefox().launch(new com.microsoft.playwright.BrowserType.LaunchOptions().setHeadless(false).setSlowMo(2000));
+                return playwright.firefox().launch(new com.microsoft.playwright.BrowserType.LaunchOptions().setHeadless(false).setSlowMo(200));
             default:
                 throw new RuntimeException("ATF is not configured for " + browserName);
         }
@@ -61,7 +61,7 @@ public class WebBrowser {
         page = context.pages().get(index);
     }
 
-    public boolean isDisplayed(String url) {
-        return page.url().equals(url);
+    public boolean isPresent(String locator) {
+        return page.isVisible(locator);
     }
 }

@@ -22,11 +22,11 @@ public class W3SchoolTests {
         browser.w3School().codeEditorPage().open();
         browser.w3School().codeEditorPage().clickW3SchoolLink();
         browser.switchToTab(1);
-        Assertions.assertTrue(browser.isDisplayed(browser.w3School().w3SchoolsHomePage().getUrl()));
+        Assertions.assertTrue(browser.isPresent(browser.w3School().w3SchoolsHomePage().getTitle()));
         browser.switchToTab(0);
         browser.w3School().codeEditorPage().clickW3SchoolLink();
         browser.switchToTab(2);
-        Assertions.assertTrue(browser.isDisplayed(browser.w3School().w3SchoolsHomePage().getUrl()));
+        Assertions.assertTrue(browser.isPresent(browser.w3School().w3SchoolsHomePage().getTitle()));
         Assertions.assertEquals(browser.getNumberOfTabs(), 3);
     }
 }

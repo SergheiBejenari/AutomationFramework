@@ -18,5 +18,4 @@ public class CodeEditorPage {
     public void clickW3SchoolLink() {
         page.click(w3SchoolLink);
     }
-
 }
