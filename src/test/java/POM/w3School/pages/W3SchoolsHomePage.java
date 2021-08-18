@@ -1,4 +1,4 @@
-package w3School.POM.pages;
+package POM.w3School.pages;
 
 import com.microsoft.playwright.Page;
 
@@ -10,8 +10,8 @@ public class W3SchoolsHomePage {
         this.page = page;
     }
 
-    public boolean isW3SchoolPageOpened() {
-        return page.url().equals(url);
+    public String getUrl() {
+        return url;
     }
 
 }

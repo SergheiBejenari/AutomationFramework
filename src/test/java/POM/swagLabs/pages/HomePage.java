@@ -1,4 +1,4 @@
-package swagLabs.POM.pages;
+package POM.swagLabs.pages;
 
 import com.microsoft.playwright.Page;
 
@@ -13,17 +13,12 @@ public class HomePage {
         this.page = page;
     }
 
-    public void navigate() {
-        page.navigate(url);
-    }
-
-    public boolean isHomePageOpened() {
-        return page.url().equals(url);
+    public String getUrl() {
+        return url;
     }
 
     public void logOut() {
         page.click(burgerMenu);
         page.click(logOutButton);
     }
-
 }
