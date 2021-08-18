@@ -17,7 +17,7 @@ public class LogInPage {
         return url;
     }
 
-    public void navigate() {
+    public void open() {
         page.navigate(url);
     }
 

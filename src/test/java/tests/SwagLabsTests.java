@@ -1,4 +1,4 @@
-package POM.tests;
+package tests;
 
 import POM.WebBrowser;
 import org.junit.jupiter.api.*;
@@ -22,14 +22,14 @@ public class SwagLabsTests {
 
     @Test
     public void logInTest() {
-        browser.swagLabs().logInPage().navigate();
+        browser.swagLabs().logInPage().open();
         browser.swagLabs().logInPage().logIn(userName, password);
         Assertions.assertTrue(browser.isDisplayed(browser.swagLabs().homePage().getUrl()));
     }
 
     @Test
     public void logOutTest() {
-        browser.swagLabs().logInPage().navigate();
+        browser.swagLabs().logInPage().open();
         browser.swagLabs().logInPage().logIn(userName, password);
         browser.swagLabs().homePage().logOut();
         Assertions.assertTrue(browser.isDisplayed(browser.swagLabs().logInPage().getUrl()));

@@ -1,4 +1,4 @@
-package POM.tests;
+package tests;
 
 import POM.WebBrowser;
 import org.junit.jupiter.api.*;
@@ -19,7 +19,7 @@ public class W3SchoolTests {
 
     @Test
     public void changeTabs() {
-        browser.w3School().codeEditorPage().navigate();
+        browser.w3School().codeEditorPage().open();
         browser.w3School().codeEditorPage().clickW3SchoolLink();
         browser.switchToTab(1);
         Assertions.assertTrue(browser.isDisplayed(browser.w3School().w3SchoolsHomePage().getUrl()));

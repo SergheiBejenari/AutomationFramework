@@ -11,7 +11,7 @@ public class CodeEditorPage {
         this.page = page;
     }
 
-    public void navigate() {
+    public void open() {
         page.navigate(url);
     }
 

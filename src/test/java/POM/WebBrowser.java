@@ -2,13 +2,14 @@ package POM;
 
 import POM.swagLabs.SwagLabsApplication;
 import POM.w3School.W3SchoolApplication;
+import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 
 public class WebBrowser {
 
-    static com.microsoft.playwright.Browser browser;
+    static Browser browser;
     Playwright playwright;
     Page page;
     BrowserContext context;
@@ -21,7 +22,7 @@ public class WebBrowser {
         page = context.newPage();
     }
 
-    public com.microsoft.playwright.Browser getBrowser() {
+    public Browser getBrowser() {
         String browserName = System.getProperty("browser", "chrome");
         playwright = Playwright.create();
         switch (browserName.toLowerCase()) {
