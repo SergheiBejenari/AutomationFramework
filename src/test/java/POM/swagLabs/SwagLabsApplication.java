@@ -1,28 +1,28 @@
 package POM.swagLabs;
 
+import POM.WebBrowser;
 import POM.swagLabs.pages.HomePage;
 import POM.swagLabs.pages.LogInPage;
-import com.microsoft.playwright.Page;
 
 public class SwagLabsApplication {
-    Page page;
+    WebBrowser browser;
     private LogInPage logInPage;
     private HomePage homePage;
 
-    public SwagLabsApplication(Page page) {
-        this.page = page;
+    public SwagLabsApplication(WebBrowser browser) {
+        this.browser = browser;
     }
 
     public LogInPage logInPage() {
         if (logInPage == null) {
-            logInPage = new LogInPage(page);
+            logInPage = new LogInPage(browser);
         }
         return logInPage;
     }
 
     public HomePage homePage() {
         if (homePage == null) {
-            homePage = new HomePage(page);
+            homePage = new HomePage(browser);
         }
         return homePage;
     }

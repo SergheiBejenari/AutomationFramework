@@ -1,16 +1,16 @@
 package POM.w3School.pages;
 
-import com.microsoft.playwright.Page;
+import POM.BasePage;
+import POM.WebBrowser;
 
-public class W3SchoolsHomePage {
-    private final String title = "//h1[text()='HTML']";
-    private final Page page;
+public class W3SchoolsHomePage extends BasePage {
+    private final String loginBtn = "#w3loginbtn";
 
-    public W3SchoolsHomePage(Page page) {
-        this.page = page;
+    public W3SchoolsHomePage(WebBrowser browser) {
+        super(browser);
     }
 
-    public String getTitle() {
-        return title;
+    public boolean isPresent() {
+        return isElementPresent(loginBtn);
     }
 }

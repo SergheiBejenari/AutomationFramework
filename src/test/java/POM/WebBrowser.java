@@ -11,7 +11,7 @@ public class WebBrowser {
 
     static Browser browser;
     Playwright playwright;
-    Page page;
+    public Page page;
     BrowserContext context;
     private SwagLabsApplication swagLabs;
     private W3SchoolApplication w3School;
@@ -37,14 +37,14 @@ public class WebBrowser {
 
     public W3SchoolApplication w3School() {
         if (w3School == null) {
-            w3School = new W3SchoolApplication(page);
+            w3School = new W3SchoolApplication(this);
         }
         return w3School;
     }
 
     public SwagLabsApplication swagLabs() {
         if (swagLabs == null) {
-            swagLabs = new SwagLabsApplication(page);
+            swagLabs = new SwagLabsApplication(this);
         }
         return swagLabs;
     }
@@ -61,7 +61,9 @@ public class WebBrowser {
         page = context.pages().get(index);
     }
 
-    public boolean isPresent(String locator) {
-        return page.isVisible(locator);
+    public void reset() {
+        context.close();
+        context = browser.newContext();
+        page = context.newPage();
     }
 }

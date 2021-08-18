@@ -1,28 +1,28 @@
 package POM.w3School;
 
+import POM.WebBrowser;
 import POM.w3School.pages.CodeEditorPage;
 import POM.w3School.pages.W3SchoolsHomePage;
-import com.microsoft.playwright.Page;
 
 public class W3SchoolApplication {
-    Page page;
+    WebBrowser browser;
     private W3SchoolsHomePage w3SchoolsHomePage;
     private CodeEditorPage codeEditorPage;
 
-    public W3SchoolApplication(Page page) {
-        this.page = page;
+    public W3SchoolApplication(WebBrowser browser) {
+        this.browser = browser;
     }
 
     public W3SchoolsHomePage w3SchoolsHomePage() {
         if (w3SchoolsHomePage == null) {
-            w3SchoolsHomePage = new W3SchoolsHomePage(page);
+            w3SchoolsHomePage = new W3SchoolsHomePage(browser);
         }
         return w3SchoolsHomePage;
     }
 
     public CodeEditorPage codeEditorPage() {
         if (codeEditorPage == null) {
-            codeEditorPage = new CodeEditorPage(page);
+            codeEditorPage = new CodeEditorPage(browser);
         }
         return codeEditorPage;
     }

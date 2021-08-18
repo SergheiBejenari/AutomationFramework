@@ -1,29 +1,29 @@
 package POM.swagLabs.pages;
 
-import com.microsoft.playwright.Page;
+import POM.BasePage;
+import POM.WebBrowser;
 
-public class LogInPage {
-    private final Page page;
+public class LogInPage extends BasePage {
     private final String userNameField = "#user-name";
     private final String passwordField = "#password";
     private final String loginButton = "#login-button";
     private final String url = "https://www.saucedemo.com/";
 
-    public LogInPage(Page page) {
-        this.page = page;
+    public LogInPage(WebBrowser browser) {
+        super(browser);
     }
 
     public void open() {
-        page.navigate(url);
+        browser.page.navigate(url);
     }
 
     public void logIn(String userName, String password) {
-        page.fill(userNameField, userName);
-        page.fill(passwordField, password);
-        page.click(loginButton);
+        browser.page.fill(userNameField, userName);
+        browser.page.fill(passwordField, password);
+        browser.page.click(loginButton);
     }
 
-    public String getLoginButton() {
-        return loginButton;
+    public boolean isPresent() {
+        return isElementPresent(userNameField) && isElementPresent(passwordField) && isElementPresent(loginButton);
     }
 }

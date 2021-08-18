@@ -17,16 +17,25 @@ public class W3SchoolTests {
         browser.close();
     }
 
+//    @AfterEach
+//    void resetBrowser() { browser.reset(); }
+
     @Test
     public void changeTabs() {
         browser.w3School().codeEditorPage().open();
         browser.w3School().codeEditorPage().clickW3SchoolLink();
         browser.switchToTab(1);
-        Assertions.assertTrue(browser.isPresent(browser.w3School().w3SchoolsHomePage().getTitle()));
+        Assertions.assertTrue(browser.w3School().w3SchoolsHomePage().isPresent());
         browser.switchToTab(0);
         browser.w3School().codeEditorPage().clickW3SchoolLink();
         browser.switchToTab(2);
-        Assertions.assertTrue(browser.isPresent(browser.w3School().w3SchoolsHomePage().getTitle()));
+        Assertions.assertTrue(browser.w3School().w3SchoolsHomePage().isPresent());
         Assertions.assertEquals(browser.getNumberOfTabs(), 3);
+    }
+
+    @Test
+    public void anotherTestWithTabs() {
+        browser.w3School().codeEditorPage().open();
+        browser.w3School().codeEditorPage().clickW3SchoolLink();
     }
 }
