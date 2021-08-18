@@ -1,4 +1,4 @@
-package w3School.POM.pages;
+package POM.w3School.pages;
 
 import com.microsoft.playwright.Page;
 

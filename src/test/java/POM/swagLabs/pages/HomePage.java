@@ -1,8 +1,9 @@
-package swagLabs.POM.pages;
+package POM.swagLabs.pages;
 
+import POM.PageBase;
 import com.microsoft.playwright.Page;
 
-public class HomePage {
+public class HomePage extends PageBase {
 
     private final Page page;
     private final String burgerMenu = "#react-burger-menu-btn";
@@ -13,12 +14,8 @@ public class HomePage {
         this.page = page;
     }
 
-    public void navigate() {
-        page.navigate(url);
-    }
-
-    public boolean isHomePageOpened() {
-        return page.url().equals(url);
+    public String getUrl() {
+        return url;
     }
 
     public void logOut() {
