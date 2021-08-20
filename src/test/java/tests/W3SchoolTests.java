@@ -14,11 +14,9 @@ public class W3SchoolTests {
 
     @AfterAll
     void closeBrowser() {
+        browser.stopThread(browser.page.title());
         browser.close();
     }
-
-//    @AfterEach
-//    void resetBrowser() { browser.reset(); }
 
     @Test
     public void changeTabs() {
@@ -31,11 +29,5 @@ public class W3SchoolTests {
         browser.switchToTab(2);
         Assertions.assertTrue(browser.w3School().w3SchoolsHomePage().isPresent());
         Assertions.assertEquals(browser.getNumberOfTabs(), 3);
-    }
-
-    @Test
-    public void anotherTestWithTabs() {
-        browser.w3School().codeEditorPage().open();
-        browser.w3School().codeEditorPage().clickW3SchoolLink();
     }
 }

@@ -2,14 +2,13 @@ package POM;
 
 import POM.swagLabs.SwagLabsApplication;
 import POM.w3School.W3SchoolApplication;
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserContext;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.*;
+
+import java.nio.file.Paths;
 
 public class WebBrowser {
 
-    static Browser browser;
+    Browser browser;
     Playwright playwright;
     public Page page;
     BrowserContext context;
@@ -19,6 +18,8 @@ public class WebBrowser {
     public WebBrowser() {
         browser = getBrowser();
         context = browser.newContext();
+        getVideo();
+        getThread();
         page = context.newPage();
     }
 
@@ -27,7 +28,8 @@ public class WebBrowser {
         playwright = Playwright.create();
         switch (browserName.toLowerCase()) {
             case "chrome":
-                return playwright.chromium().launch(new com.microsoft.playwright.BrowserType.LaunchOptions().setHeadless(false).setSlowMo(200));
+                return playwright.chromium().launch(new com.microsoft.playwright.BrowserType.
+                        LaunchOptions().setHeadless(false).setSlowMo(3000));
             case "firefox":
                 return playwright.firefox().launch(new com.microsoft.playwright.BrowserType.LaunchOptions().setHeadless(false).setSlowMo(200));
             default:
@@ -61,9 +63,20 @@ public class WebBrowser {
         page = context.pages().get(index);
     }
 
-    public void reset() {
-        context.close();
-        context = browser.newContext();
-        page = context.newPage();
+    public void getVideo() {
+        context = browser.newContext(
+                new Browser.NewContextOptions().setRecordVideoDir(Paths.get("target/videos/"))
+                        .setRecordVideoSize(840, 480));
+    }
+
+    public void getThread() {
+        context.tracing().start(new Tracing.StartOptions()
+                .setScreenshots(true)
+                .setSnapshots(true));
+    }
+
+    public void stopThread(String title) {
+        context.tracing().stop(new Tracing.StopOptions()
+                .setPath(Paths.get("target/trace" + "_" + title.replaceAll(" ", "_") + ".zip")));
     }
 }

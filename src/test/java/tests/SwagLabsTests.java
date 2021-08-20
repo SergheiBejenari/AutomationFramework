@@ -17,6 +17,7 @@ public class SwagLabsTests {
 
     @AfterAll
     void closeBrowser() {
+        browser.stopThread(browser.page.title());
         browser.close();
     }
 
